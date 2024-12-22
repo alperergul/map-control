@@ -1,0 +1,41 @@
+<div
+  [ngClass]="{ 'active-widget': widget.isActive }"
+  class="clickable bg-widget-bg rounded-[15px] flex flex-col gap-4 p-4"
+  (click)="clickedWidget(widget)"
+>
+  <!-- Part of Widget Header  -->
+  <div class="flex flex-row justify-stretch gap-4">
+    <div class="grow flex flex-col">
+      <div class="text-xl font-medium">Sıcaklık ve Nem Sensörü</div>
+      <div class="text-lg font-light">{{ widget.name }}</div>
+    </div>
+    <div class="grow flex justify-end items-center">
+      <img
+        src="/img/battery-{{ widget.battery }}.png"
+        alt="battery"
+        style="width: 29px; height: 14px"
+      />
+    </div>
+  </div>
+
+  <!-- Part of Widget Content  -->
+  <div class="flex flex-row gap-4">
+    <div class="grow flex flex-row justify-center items-center gap-4">
+      <img src="/img/widget-temp.png" alt="temp" />
+      <span class="text-3xl font-medium">{{ widget.temp }} °C</span>
+    </div>
+
+    <div class="grow flex flex-row justify-center items-center gap-4">
+      <img src="/img/widget-humidity.png" alt="temp" />
+      <span class="text-3xl font-medium">% {{ widget.humidity }}</span>
+    </div>
+  </div>
+
+  <!-- Part of Widget Footer  -->
+  <div class="flex flex-row justify-between items-center gap-4">
+    <span class="text-xl font-medium">
+      {{ widget.date | date : "dd/MM/yyyy hh:mm" }}
+    </span>
+    <img src="/img/widget-temp-2.png" alt="temp" />
+  </div>
+</div>

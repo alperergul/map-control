@@ -1,0 +1,154 @@
+@if (!editableTemp && !editableHumidity) {
+
+<div class="popup-wrapper flex flex-col gap-4 p-4">
+  <!-- Part of Widget Header  -->
+  <div class="flex flex-row justify-stretch gap-4">
+    <div class="grow flex flex-col">
+      <div class="text-3xl font-medium">Sıcaklık ve Nem Sensörü</div>
+      <div class="text-2xl font-light">{{ widget.name }}</div>
+    </div>
+  </div>
+
+  <!-- Part of Widget Content  -->
+  <div class="flex flex-col gap-4">
+    <div class="grow flex flex-row justify-between items-center gap-4">
+      <div class="w-1/3 flex flex-row items-center gap-4">
+        <img src="/img/widget-temp.png" alt="temp" />
+        <span class="text-3xl font-medium">{{ widget.temp }} °C</span>
+      </div>
+      <button
+        (click)="changeTemp()"
+        class="w-[120px] text-2xl text-[#0060C0] bg-widget-bg shadow-md rounded-lg p-3"
+      >
+        <span class="font-bold">Sıcaklık</span> Ayarla
+      </button>
+    </div>
+
+    <div class="grow flex flex-row justify-between items-center gap-4">
+      <div class="w-1/3 flex flex-row items-center gap-6">
+        <img src="/img/widget-humidity.png" alt="temp" />
+        <span class="text-3xl font-medium">% {{ widget.humidity }}</span>
+      </div>
+
+      <button
+        (click)="changeHumidity()"
+        class="w-[120px] text-2xl text-[#0060C0] bg-widget-bg shadow-md rounded-lg p-3"
+      >
+        <span class="font-bold">Nem</span> Ayarla
+      </button>
+    </div>
+  </div>
+</div>
+} @else if (editableTemp) {
+<div class="popup-wrapper flex flex-col gap-4 p-4">
+  <!-- Part of Widget Header  -->
+  <div class="flex flex-row justify-stretch gap-4">
+    <div class="grow flex flex-col">
+      <div class="text-3xl text-[#0060C0] font-medium">
+        <span class="font-bold">Sıcaklık</span> Ayarla
+      </div>
+      <div class="text-2xl font-light">{{ widget.name }}</div>
+    </div>
+  </div>
+
+  <!-- Part of Widget Content  -->
+  <div class="flex flex-col gap-4">
+    <div class="grow flex flex-row justify-between items-center gap-4">
+      <div class="w-[150px] w-1/2 flex flex-col gap-4">
+        <div class="text-2xl font-semibold">Mevcut</div>
+        <div class="flex flex-row items-center gap-4">
+          <img src="/img/widget-temp.png" alt="temp" />
+          <span class="text-3xl font-medium">{{ widget.temp }} °C</span>
+        </div>
+      </div>
+
+      <div class="w-1/2 flex flex-col gap-4">
+        <div class="text-2xl font-semibold">Yeni</div>
+        <div class="w-1/2 flex flex-row items-center gap-4">
+          <div class="max-w-sm min-w-[200px]">
+            <input
+              [(ngModel)]="newTemp"
+              type="number"
+              id="first_name"
+              class="w-[150px] border border-[#0060C0] text-2xl rounded-lg focus:focus:border-[#0060C0] focus:outline-none p-2.5"
+              placeholder="Sıcaklık giriniz"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grow flex flex-row justify-between items-center gap-4">
+      <button
+        class="w-[150px] text-2xl text-[#0060C0] bg-[#ffffff] border border-[#0060C0] shadow-md rounded-lg p-3"
+        (click)="cancel()"
+      >
+        İptal Et
+      </button>
+
+      <button
+        (click)="saveTemp()"
+        class="w-[150px] text-2xl text-[#ffffff] bg-[#007DFC] shadow-md rounded-lg p-3"
+      >
+        Güncelle
+      </button>
+    </div>
+  </div>
+</div>
+} @else if (editableHumidity) {
+<div class="popup-wrapper flex flex-col gap-4 p-4">
+  <!-- Part of Widget Header  -->
+  <div class="flex flex-row justify-stretch gap-4">
+    <div class="grow flex flex-col">
+      <div class="text-3xl text-[#0060C0] font-medium">
+        <span class="font-bold">Nem</span> Ayarla
+      </div>
+      <div class="text-2xl font-light">{{ widget.name }}</div>
+    </div>
+  </div>
+
+  <!-- Part of Widget Content  -->
+  <div class="flex flex-col gap-4">
+    <div class="grow flex flex-row justify-between items-center gap-4">
+      <div class="w-[150px] w-1/2 flex flex-col gap-4">
+        <div class="text-2xl font-semibold">Mevcut</div>
+        <div class="flex flex-row items-center gap-4">
+          <img src="/img/widget-humidity.png" alt="humidity" />
+          <span class="text-3xl font-medium">% {{ widget.humidity }}</span>
+        </div>
+      </div>
+
+      <div class="w-1/2 flex flex-col gap-4">
+        <div class="text-2xl font-semibold">Yeni</div>
+        <div class="w-1/2 flex flex-row items-center gap-4">
+          <div class="max-w-sm min-w-[200px]">
+            <input
+              [(ngModel)]="newHumidity"
+              type="number"
+              id="first_name"
+              class="w-[150px] border border-[#0060C0] text-2xl rounded-lg focus:focus:border-[#0060C0] focus:outline-none p-2.5"
+              placeholder="Nem giriniz"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grow flex flex-row justify-between items-center gap-4">
+      <button
+        class="w-[150px] text-2xl text-[#0060C0] bg-[#ffffff] border border-[#0060C0] shadow-md rounded-lg p-3"
+        (click)="cancel()"
+      >
+        İptal Et
+      </button>
+
+      <button
+        (click)="saveHumidity()"
+        class="w-[150px] text-2xl text-[#ffffff] bg-[#007DFC] shadow-md rounded-lg p-3"
+      >
+        Güncelle
+      </button>
+    </div>
+  </div>
+</div>
+}

@@ -1,1 +1,71 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Poppins", serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #555;
+  overflow-x: hidden;
+}
+
+.map-control-wrapper {
+  height: calc(100vh - 22rem);
+}
+
+#map {
+  height: calc(100vh - 22rem - 33px);
+  width: 100%;
+}
+
+/* Koyu tema için uncommitleyin */
+
+/* .leaflet-layer,
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out,
+.leaflet-control-attribution {
+  filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+} */
+
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f2f9ff;
+  border-radius: 39px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #007dfc;
+  border-radius: 39px;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.active-widget {
+  outline: 1px solid #0060c0;
+}
+
+.leaflet-popup-content {
+  width: 300px;
+}
+
+.popup-wrapper {
+  width: 300px;
+}

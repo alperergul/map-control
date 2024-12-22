@@ -1,0 +1,57 @@
+<div
+  class="px-32 max-sm:px-6 flex laptop:flex-row max-sm:flex-col tablet:flex-col gap-12 map-control-wrapper"
+>
+  <div class="w-8/12 max-lg:w-full">
+    <div class="flex flex-col gap-4">
+      <h2 class="text-4xl font-semibold">Lorem Ipsum</h2>
+
+      <div class="map-container pt-3">
+        <div id="map"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="w-4/12 max-lg:w-full">
+    <div class="container flex flex-col gap-4 w-full h-full">
+      <div class="w-full flex justify-end">
+        <div
+          class="flex px-4 py-3 rounded-full border-2 border-gray-300 overflow-hidden w-1/2 max-sm:w-full"
+        >
+          <input
+            type="email"
+            placeholder="Search"
+            class="w-full outline-none bg-transparent text-gray-600 text-xl"
+            [(ngModel)]="searchText"
+            (ngModelChange)="search($event)"
+          />
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 14 14"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M13 13L10.1 10.1M11.6667 6.33333C11.6667 9.27885 9.27885 11.6667 6.33333 11.6667C3.38781 11.6667 1 9.27885 1 6.33333C1 3.38781 3.38781 1 6.33333 1C9.27885 1 11.6667 3.38781 11.6667 6.33333Z"
+              stroke="#1E1E1E"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+      </div>
+
+      <div class="h-full overflow-x-auto shadow-3xl rounded-[12px] p-10">
+        <div
+          class="grid 2xl:grid-cols-2 3xl:grid-cols-3 tablet:grid-cols-3 laptop:grid-cols-2 gap-4"
+        >
+          @for (widget of widgets; track widget) {
+
+          <widget [widget]="widget" (onClick)="onClick($event)"></widget>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
